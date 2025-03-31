@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +49,7 @@ nav ul li {
 nav ul li a {
     padding: 10px 20px;
     color: #fff;
-    background: linear-gradient(45deg, #f39c12, #d98e20); /* Muted yellow gradient */
+    background: linear-gradient(45deg, #f39c12, #d98e20);
     border-radius: 30px;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -138,12 +137,12 @@ main {
 }
 
 .status.done {
-    background-color: #d98e20; /* Muted yellow */
+    background-color: #d98e20;
     color: #fff;
 }
 
 button {
-    background: linear-gradient(45deg, #f39c12, #d98e20); /* Muted yellow gradient */
+    background: linear-gradient(45deg, #f39c12, #d98e20);
     color: #fff;
     border: none;
     padding: 12px 30px;
