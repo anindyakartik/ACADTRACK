@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management | AcadTrack</title>
+    <link rel="stylesheet" href="time_management.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Time Management</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li> 
+            <li><a href="courses.html">📚 Courses</a></li>
+            <li><a href="assignments.html">📝 Assignments</a></li>
+            <li><a href="exams.html">🎓 Exams</a></li>
+            <li><a href="skills.html">💡 Skills</a></li>
+            <li><a href="time_management.html">⏰ Time Management</a></li>
+   
+        </ul>
+    </nav>
+
+    <!-- Filter and Sort Section (Beautifully Aligned) -->
+    <div class="controls-container">
+        <div class="control-box">
+            <label for="activity-filter">🔍 Filter by Activity:</label>
+            <select id="activity-filter">
+                <option value="All">All</option>
+                <option value="Study">📖 Study</option>
+                <option value="Coding">💻 Coding</option>
+                <option value="Exercise">🏋️ Exercise</option>
+            </select>
+        </div>
+
+        <div class="control-box">
+            <label for="priority-sort">📌 Sort by Priority:</label>
+            <select id="priority-sort">
+                <option value="None">None</option>
+                <option value="Highest">🔺 Highest First</option>
+                <option value="Lowest">🔻 Lowest First</option>
+            </select>
+        </div>
+    </div>
+ <!-- Tasks Container -->
+ <div id="tasks-container" class="tasks-grid"></div>
+
+ <p id="no-tasks-message" class="no-results" style="display: none;">🚫 No tasks found.</p>
+
+    <!-- Task Input Section (Add New Task) -->
+    <div class="task-input">
+        <h2>➕ Add Task</h2>
+        <input type="text" id="task-name" placeholder="📝 Task Name" required>
+        <select id="activity-type">
+            <option value="Study">📖 Study</option>
+            <option value="Coding">💻 Coding</option>
+            <option value="Exercise">🏋️ Exercise</option>
+        </select>
+        <select id="priority-level">
+            <option value="High">🔴 High</option>
+            <option value="Medium">🟠 Medium</option>
+            <option value="Low">🟢 Low</option>
+        </select>
+        <input type="number" id="duration" placeholder="⏳ Duration (Hours)" min="1" required>
+        <input type="date" id="deadline" required>
+        <button id="add-task">➕ Add Task</button>
+    </div>
+
+   
+    <!-- Edit Task Section -->
+    <div class="task-edit" style="display: none;">
+        <h2>✏️ Edit Task</h2>
+        <input type="text" id="edit-task-name" placeholder="📝 New Task Name" required>
+        <select id="edit-activity-type">
+            <option value="Study">📖 Study</option>
+            <option value="Coding">💻 Coding</option>
+            <option value="Exercise">🏋️ Exercise</option>
+        </select>
+        <select id="edit-priority-level">
+            <option value="High">🔴 High</option>
+            <option value="Medium">🟠 Medium</option>
+            <option value="Low">🟢 Low</option>
+        </select>
+        <input type="number" id="edit-duration" placeholder="⏳ Duration (Hours)" min="1" required>
+        <input type="date" id="edit-deadline" required>
+        <button id="update-task">✔️ Update Task</button>
+        <button id="cancel-edit">❌ Cancel</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="time_management.js"></script>
+
+</body>
+</html>

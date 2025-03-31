@@ -1,0 +1,327 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 6rem 0;
+    text-align: center;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+}
+
+header h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(45deg, #ff8c00, #ff6347);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    text-shadow: 0 5px 30px rgba(255, 140, 0, 0.8);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 3rem 0 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ff8c00;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px #ff8c00;
+}
+
+main {
+    padding: 6rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ff8c00;
+    font-weight: 800;
+    text-shadow: 0 5px 25px rgba(255, 140, 0, 0.7);
+}
+
+.exam-list .exam-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    padding: 2.5rem 0;
+    transition: all 0.4s ease;
+}
+
+.exam-box {
+    background: linear-gradient(135deg, #ff8c00, #ff6347);
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    width: 340px;
+    text-align: center;
+    margin: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s 0.5s forwards;
+    background-size: 200% 200%;
+    background-position: right bottom;
+}
+
+.exam-box h3 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.exam-box p {
+    font-size: 1.2rem;
+    color: #34495e;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.exam-box:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ff6347, #ff8c00);
+    color: #fff;
+    background-size: 300% 300%;
+    background-position: left bottom;
+}
+
+.exam-box:hover h3 {
+    color: #fff;
+}
+
+.exam-box:hover p {
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.add-exam {
+    margin-top: 8rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 70px 50px;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.add-exam h2 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.add-exam form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.add-exam .form-group label {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.add-exam .form-group input {
+    padding: 20px;
+    font-size: 1.3rem;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-exam .form-group input:focus {
+    border-color: #ff8c00;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+}
+
+.add-exam button {
+    padding: 20px;
+    background: linear-gradient(45deg, #ff8c00, #ff6347);
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.add-exam button:hover {
+    background: linear-gradient(45deg, #ff6347, #ff8c00);
+    transform: translateY(-5px);
+}
+
+footer {
+    text-align: center;
+    padding: 4rem;
+    background-color: #333;
+    color: white;
+    font-size: 1.3rem;
+    margin-top: 6rem;
+    letter-spacing: 1px;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s ease;
+    margin-top: 12px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.edit-task {
+    background: linear-gradient(45deg, #ff9800, #ff6f00);
+    color: white;
+    box-shadow: 0px 6px 12px rgba(255, 152, 0, 0.3);
+}
+
+.edit-task:hover {
+    background: linear-gradient(45deg, #ff6f00, #ff9800);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(255, 152, 0, 0.4);
+}
+
+.edit-task:active {
+    transform: translateY(1px);
+}
+
+.delete-task {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    color: white;
+    box-shadow: 0px 6px 12px rgba(244, 67, 54, 0.3);
+}
+
+.delete-task:hover {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(244, 67, 54, 0.4);
+}
+
+.delete-task:active {
+    transform: translateY(1px);
+}
+
+.edit-exam {
+    margin-top: 8rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 70px 50px;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.edit-exam h2 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.edit-exam form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.edit-exam .form-group label {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.edit-exam .form-group input {
+    padding: 20px;
+    font-size: 1.3rem;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-exam .form-group input:focus {
+    border-color: #ff8c00;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+}
+
+.edit-exam button {
+    padding: 20px;
+    background: linear-gradient(45deg, #ff8c00, #ff6347);
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.edit-exam button:hover {
+    background: linear-gradient(45deg, #ff6347, #ff8c00);
+    transform: translateY(-5px);
+}

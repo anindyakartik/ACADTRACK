@@ -1,0 +1,327 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0a23, #14142b);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #00ff00;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(0, 255, 0, 0.15);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00ff00;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li a:hover, .active {
+    background: #00ff00;
+    color: #14142b;
+    transform: scale(1.1);
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 255, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard-item {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    color: #00ff00;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.control-box {
+    background: rgba(20, 20, 40, 0.85);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: #00ff00;
+}
+
+.skill-input, .skill-edit {
+    background: rgba(10, 10, 40, 0.9);
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 480px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.3);
+}
+
+.skill-input h2, .skill-edit h2 {
+    color: #00ff00;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.skill-input input, .skill-input select, .skill-input button,
+.skill-edit input, .skill-edit select, .skill-edit button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    background: rgba(30, 30, 50, 0.85);
+    color: #ffffff;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.skill-input input:focus, .skill-input select:focus,
+.skill-edit input:focus, .skill-edit select:focus {
+    border: 2px solid #00ff00;
+}
+
+.skill-input button, .skill-edit button {
+    background: #00ff00;
+    color: #14142b;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.skill-input button:hover, .skill-edit button:hover {
+    background: #008000;
+    transform: scale(1.05);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background: rgba(10, 10, 40, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    width: 270px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    margin: 12px 0;
+    color: #00ff00;
+    font-size: 1.4em;
+}
+
+.skill-card p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #ddd;
+}
+
+.no-results {
+    font-size: 1.2em;
+    color: #ff5555;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .controls-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skill-input, .skill-edit {
+        width: 90%;
+    }
+}
+
+.control-box {
+    background: rgba(33, 33, 33, 0.85);
+    padding: 25px 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px rgba(34, 193, 195, 0.3);
+    width: 240px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.control-box:hover {
+    border-color: #34d399;
+    box-shadow: 0px 16px 60px rgba(34, 193, 195, 0.5);
+    transform: translateY(-5px);
+}
+
+.control-box label {
+    font-weight: 700;
+    color: #34d399;
+    font-size: 20px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.control-box .icon {
+    font-size: 24px;
+    color: #34d399;
+    transition: all 0.3s ease-in-out;
+}
+
+.control-box .icon:hover {
+    transform: rotate(10deg);
+}
+
+.control-box select {
+    background: #121212;
+    border: 2px solid #34d399;
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 15px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    font-size: 16px;
+}
+
+.control-box select:hover {
+    border-color: #2dd36f;
+}
+
+.control-box select:focus {
+    border-color: #34d399;
+    transform: scale(1.05);
+}
+
+.styled-dropdown {
+    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: rgba(30, 30, 50, 0.8);
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.styled-dropdown:hover {
+    background: rgba(40, 40, 60, 0.9);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+}
+
+.styled-dropdown:focus {
+    border-color: #008000;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
+}
+
+.skill-card .edit-skill {
+    background: #2196f3;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-top: 12px;
+}
+
+.skill-card .edit-skill:hover {
+    background: #1976d2;
+}
+
+.skill-card .delete-skill {
+    background: #f44336;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-top: 12px;
+}
+
+.skill-card .delete-skill:hover {
+    background: #d32f2f;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-top: 12px;
+}
+
+.edit-task {
+    background: #2196f3;
+    color: #fff;
+}
+
+.edit-task:hover {
+    background: #1976d2;
+}
+
+.delete-task {
+    background: #f44336;
+    color: #fff;
+}
+
+.delete-task:hover {
+    background: #d32f2f;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Assignments | AcadTrack</title>
+    <link rel="stylesheet" href="assignments.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+    <header>
+        <h1>Assignments Tracker</h1>
+    </header>
+
+   
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="dashboard.html">📊Dashboard</a></li> 
+            <li><a href="assignments.html">📝 Assignments</a></li>
+            <li><a href="exams.html">🎓 Exams</a></li>
+            <li><a href="skills.html">💡 Skills</a></li>
+            <li><a href="time_management.html" >⏰ Time Management</a></li>
+            
+        </ul>
+    </nav>
+    
+
+  
+        <div class="control-box">
+            <label for="deadline-sort">📅 Sort by Submission Date:</label>
+            <select id="deadline-sort">
+                <option value="None">None</option>
+                <option value="Earliest">🔹 Earliest First</option>
+                <option value="Latest">🔸 Latest First</option>
+            </select>
+        </div>
+    </section>
+
+
+    <section id="assignments-container" class="tasks-grid">
+        
+    </section>
+    <p id="no-assignments-message" class="no-results" style="display: none;">🚫 No assignments found.</p>
+
+  
+    <section class="task-input">
+        <h2>➕ Add Assignment</h2>
+        <form id="assignment-form">
+            <div class="input-group">
+                <input type="text" id="assignment-title" placeholder="📝 Assignment Title" required>
+                <input type="text" id="course-id" placeholder="📚 Course ID" required>
+            </div>
+            <div class="input-group">
+                <input type="date" id="submission-date" required>
+                <input type="number" id="marks-assigned" placeholder="📊 Marks Assigned" min="0" required>
+            </div>
+            <div class="input-group">
+                <select id="status">
+                    <option value="Pending">⏳ Pending</option>
+                    <option value="Completed">✅ Completed</option>
+                </select>
+            </div>
+            <button type="submit" id="add-assignment">➕ Add Assignment</button>
+        </form>
+    </section>
+
+ 
+    <section class="task-edit" style="display: none;">
+        <h2>✏️ Edit Assignment</h2>
+        <form id="edit-assignment-form">
+            <input type="hidden" id="edit-assignment-id">
+            <div class="input-group">
+                <input type="text" id="edit-assignment-title" placeholder="📝 New Assignment Title" required>
+                <input type="text" id="edit-course-id" placeholder="📚 Course ID" required>
+            </div>
+            <div class="input-group">
+                <input type="date" id="edit-submission-date" required>
+                <input type="number" id="edit-marks-assigned" placeholder="📊 Marks Assigned" min="0" required>
+            </div>
+            <div class="input-group">
+                <select id="edit-status">
+                    <option value="Pending">⏳ Pending</option>
+                    <option value="Completed">✅ Completed</option>
+                </select>
+            </div>
+            <button type="submit" id="update-assignment">✔️ Update Assignment</button>
+            <button type="button" id="cancel-edit">❌ Cancel</button>
+        </form>
+    </section>
+
+
+    <script src="assignments.js"></script>
+
+</body>
+</html>

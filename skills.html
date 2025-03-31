@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Tracker | AcadTrack</title>
+    <link rel="stylesheet" href="skills.css">
+</head>
+<body>
+
+
+    <header>
+        <h1>Skills </h1>
+    </header>
+
+  
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="dashboard.html">📊Dashboard</a></li> 
+            <li><a href="assignments.html">📝 Assignments</a></li>
+            <li><a href="exams.html">🎓 Exams</a></li>
+            <li><a href="skills.html">💡 Skills</a></li>
+            <li><a href="time_management.html" >⏰ Time Management</a></li>
+        
+        </ul>
+    </nav>
+
+   
+    <div class="dashboard">
+        <div class="dashboard-item">Total Skills: <span id="total-skills">0</span></div>
+        <div class="dashboard-item">Total Hours Practiced: <span id="total-hours">0</span></div>
+        <div class="dashboard-item">Certifications Earned: <span id="certifications-earned">0</span></div>
+    </div>
+
+ 
+    <div class="controls-container">
+        <div class="control-box">
+            <label for="proficiency-filter">📊 Filter by Proficiency:</label>
+            <select id="proficiency-filter">
+                <option value="All">All</option>
+                <option value="Beginner">🔰 Beginner</option>
+                <option value="Intermediate">⚡ Intermediate</option>
+                <option value="Advanced">🔥 Advanced</option>
+            </select>
+        </div>
+    </div>
+
+  
+    <div id="skills-container" class="skills-grid" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+    <p id="no-skills-message" class="no-results" style="display: none;">🚫 No skills found.</p>
+
+    <div class="skill-input small-box">
+        <h2>➕ Add Skill</h2>
+        <input type="text" id="skill-name" placeholder="💡 Skill Name" required>
+        <input type="number" id="hours-practiced" placeholder="⏳ Hours Practiced" min="1" required>
+        <select id="proficiency-level">
+            <option value="Beginner">🔰 Beginner</option>
+            <option value="Intermediate">⚡ Intermediate</option>
+            <option value="Advanced">🔥 Advanced</option>
+        </select>
+        <input type="text" id="learning-resources" placeholder="📚 Learning Resources">
+        <select id="certification-status">
+            <option value="Not Certified">❌ Not Certified</option>
+            <option value="In Progress">⏳ In Progress</option>
+            <option value="Certified">✅ Certified</option>
+        </select>
+        <button id="add-skill">➕ Add Skill</button>
+    </div>
+
+   
+    <div class="skill-edit small-box" style="display: none;">
+        <h2>✏️ Edit Skill</h2>
+        <input type="text" id="edit-skill-name" placeholder="💡 New Skill Name" required>
+        <input type="number" id="edit-hours-practiced" placeholder="⏳ Hours Practiced" min="1" required>
+        <select id="edit-proficiency-level">
+            <option value="Beginner">🔰 Beginner</option>
+            <option value="Intermediate">⚡ Intermediate</option>
+            <option value="Advanced">🔥 Advanced</option>
+        </select>
+        <input type="text" id="edit-learning-resources" placeholder="📚 Learning Resources">
+        <select id="edit-certification-status">
+            <option value="Not Certified">❌ Not Certified</option>
+            <option value="In Progress">⏳ In Progress</option>
+            <option value="Certified">✅ Certified</option>
+        </select>
+        <button id="update-skill">✔️ Update Skill</button>
+        <button id="cancel-edit">❌ Cancel</button>
+    </div>
+
+    <script src="skills.js"></script>
+
+</body>
+</html>

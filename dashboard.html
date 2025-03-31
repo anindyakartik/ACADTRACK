@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcadTrack - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <h1>AcadTrack</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="assignments.html">📝 Assignments</a></li>
+                <li><a href="exams.html">🎓 Exams</a></li>
+                <li><a href="skills.html">💡 Skills</a></li>
+                <li><a href="time_management.html">⏰ Time Management</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main>
+        <section class="dashboard">
+            <h2 class="dashboard-title">Your Academic Overview</h2>
+            <div class="dashboard-container">
+
+                <!-- Assignments -->
+                <div class="card" id="assignments">
+                    <h3>Assignments</h3>
+                    <p>Upcoming Submissions</p>
+                    <ul>
+                        <li>⚡ AI/ML Project Report - Due Apr 5</li>
+                        <li>⚡ OS Lab Assignment - Due Apr 8</li>
+                    </ul>
+                    <button class="btn view-more">View All Assignments</button>
+                </div>
+
+                <!-- Exams -->
+                <div class="card" id="exams">
+                    <h3>Exams</h3>
+                    <p>Next Important Exams</p>
+                    <ul>
+                        <li>📅 DBMS Mid-Sem - Apr 10</li>
+                        <li>📅 AI/ML Final - Apr 15</li>
+                    </ul>
+                    <button class="btn view-more">View All Exams</button>
+                </div>
+
+                <!-- Skills Tracking -->
+                <div class="card" id="skills">
+                    <h3>Skills</h3>
+                    <p>Current Learning Focus</p>
+                    <ul>
+                        <li>✅ DSA: Trees & Graphs</li>
+                        <li>✅ AI/ML: LLM Fine-tuning</li>
+                        <li>✅ Dev: Backend APIs (Node.js + MongoDB)</li>
+                    </ul>
+                    <button class="btn view-more">View All Skills</button>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card" id="activities">
+                    <h3>Recent Activities</h3>
+                    <ul>
+                        <li>📝 Completed AI/ML Quiz - 95%</li>
+                        <li>⚡ Attended Web Dev Workshop</li>
+                        <li>💡 Published a blog on AI advancements</li>
+                    </ul>
+                    <button class="btn view-more">View All Activities</button>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="card" id="progress">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar-container">
+                        <p>DSA Mastery: 80%</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <p>AI/ML Learning: 60%</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AcadTrack. All rights reserved.</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
