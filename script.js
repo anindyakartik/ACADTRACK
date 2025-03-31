@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const studentForm = document.getElementById("studentForm");
 
-    const API_URL = "http://localhost:5000/students"; // Update if using a deployed API
+    const API_URL = "http://localhost:5000/students"; 
 
-    // 👉 Add Student
+    
     studentForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
             if (response.ok) {
-                alert("🎉 Student added successfully!");
+                alert(" Student added successfully!");
                 studentForm.reset();
             } else {
                 alert(`❌ Error: ${data.message}`);
