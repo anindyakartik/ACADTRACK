@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const cancelEditBtn = document.getElementById("cancel-edit");
     const editTaskSection = document.querySelector(".task-edit");
     
-    let currentEditingTaskName = null; // Stores the original task name before edit
+    let currentEditingTaskName = null;
 
-    // 🔹 Fetch tasks from backend
     async function fetchTasks() {
         try {
             const response = await fetch("http://localhost:5000/tasks");
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 🔹 Render tasks in the UI
     function renderTasks(tasks) {
         tasksContainer.innerHTML = "";
         if (tasks.length === 0) {
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tasks.forEach(task => createTaskElement(task));
     }
 
-    // 🔹 Create a task card in UI
     function createTaskElement(task) {
         const taskCard = document.createElement("div");
         taskCard.classList.add("task-card");
@@ -53,12 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
         tasksContainer.appendChild(taskCard);
     }
 
-    // 🔹 Open Edit Task UI
     function openEditTaskUI(task) {
         editTaskSection.style.display = "block";
-        currentEditingTaskName = task.TASK_NAME; // Store original name for reference
+        currentEditingTaskName = task.TASK_NAME;
 
-        // Prefill form with existing task data
         document.getElementById("edit-task-name").value = task.TASK_NAME;
         document.getElementById("edit-activity-type").value = task.Activity_Type;
         document.getElementById("edit-priority-level").value = task.PRIORITY_LEVEL;
@@ -66,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("edit-deadline").value = task.DEADLINE;
     }
 
-    // 🔹 Update Task
     async function updateTask() {
         const TASK_NAME = document.getElementById("edit-task-name").value.trim();
         const Activity_Type = document.getElementById("edit-activity-type").value;
@@ -91,14 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Error updating task");
 
             alert("✅ Task updated successfully!");
-            fetchTasks(); // Refresh UI
-            editTaskSection.style.display = "none"; // Hide edit form
+            fetchTasks();
+            editTaskSection.style.display = "none";
         } catch (error) {
             console.error("❌ Error updating task:", error);
         }
     }
 
-    // 🔹 Add a new task
     async function addTask() {
         const TASK_NAME = document.getElementById("task-name").value.trim();
         const Activity_Type = document.getElementById("activity-type").value;
@@ -140,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 🔹 Delete a task
     async function deleteTask(taskName) {
         const confirmDelete = confirm("⚠️ Are you sure you want to delete this task?");
         if (confirmDelete) {
@@ -156,15 +148,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 🔹 Cancel Edit
     cancelEditBtn.addEventListener("click", () => {
         editTaskSection.style.display = "none";
     });
 
-    // 🔹 Event Listeners
     addTaskBtn.addEventListener("click", addTask);
     updateTaskBtn.addEventListener("click", updateTask);
 
-    // Fetch tasks on page load
     fetchTasks();
 });
