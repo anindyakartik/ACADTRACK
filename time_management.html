@@ -8,26 +8,25 @@
 </head>
 <body>
 
-    <!-- Header -->
+  
     <header>
         <h1>Time Management</h1>
     </header>
 
-    <!-- Navigation -->
+
     <nav>
         <ul>
             <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="dashboard.html">📊 Dashboard</a></li> 
-            <li><a href="courses.html">📚 Courses</a></li>
+            <li><a href="dashboard.html">📊Dashboard</a></li> 
             <li><a href="assignments.html">📝 Assignments</a></li>
             <li><a href="exams.html">🎓 Exams</a></li>
             <li><a href="skills.html">💡 Skills</a></li>
-            <li><a href="time_management.html">⏰ Time Management</a></li>
+            <li><a href="time_management.html" >⏰ Time Management</a></li>
    
         </ul>
     </nav>
 
-    <!-- Filter and Sort Section (Beautifully Aligned) -->
+    
     <div class="controls-container">
         <div class="control-box">
             <label for="activity-filter">🔍 Filter by Activity:</label>
@@ -48,12 +47,11 @@
             </select>
         </div>
     </div>
- <!-- Tasks Container -->
+ 
  <div id="tasks-container" class="tasks-grid"></div>
 
  <p id="no-tasks-message" class="no-results" style="display: none;">🚫 No tasks found.</p>
 
-    <!-- Task Input Section (Add New Task) -->
     <div class="task-input">
         <h2>➕ Add Task</h2>
         <input type="text" id="task-name" placeholder="📝 Task Name" required>
@@ -73,7 +71,7 @@
     </div>
 
    
-    <!-- Edit Task Section -->
+    
     <div class="task-edit" style="display: none;">
         <h2>✏️ Edit Task</h2>
         <input type="text" id="edit-task-name" placeholder="📝 New Task Name" required>
@@ -93,7 +91,7 @@
         <button id="cancel-edit">❌ Cancel</button>
     </div>
 
-    <!-- JavaScript -->
+   
     <script src="time_management.js"></script>
 
 </body>
