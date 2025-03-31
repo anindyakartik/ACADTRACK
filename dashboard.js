@@ -1,4 +1,3 @@
-// Sample data for demonstration purposes
 const studentData = {
     name: "John Doe",
     major: "Computer Science",
@@ -31,14 +30,12 @@ const studentData = {
     ]
 };
 
-// Function to update the student profile section
 function updateProfile() {
     document.getElementById('studentName').textContent = studentData.name;
     document.getElementById('studentMajor').textContent = studentData.major;
     document.getElementById('studentYear').textContent = studentData.year;
 }
 
-// Function to update the progress tracking section
 function updateProgress() {
     const assignmentsProgress = (studentData.assignments.pending / studentData.assignments.total) * 100;
     const examsProgress = (studentData.exams.total - 1) / studentData.exams.total * 100;
@@ -48,7 +45,6 @@ function updateProgress() {
     document.getElementById('overallProgress').style.width = `${overallProgress}%`;
 }
 
-// Function to populate the upcoming events section
 function populateEvents() {
     const eventsList = document.getElementById('upcomingEvents');
     studentData.upcomingEvents.forEach(event => {
@@ -58,7 +54,6 @@ function populateEvents() {
     });
 }
 
-// Function to populate the resources section
 function populateResources() {
     const resourcesList = document.getElementById('resourcesList');
     studentData.resources.forEach(resource => {
@@ -71,7 +66,6 @@ function populateResources() {
     });
 }
 
-// Function to populate the communication tools section
 function populateCommunication() {
     const communicationList = document.getElementById('communicationList');
     studentData.communication.forEach(tool => {
@@ -84,7 +78,6 @@ function populateCommunication() {
     });
 }
 
-// Function to populate the study plans section
 function populateStudyPlans() {
     const studyPlansList = document.getElementById('studyPlansList');
     studentData.studyPlans.forEach(plan => {
@@ -97,7 +90,6 @@ function populateStudyPlans() {
     });
 }
 
-// Function to populate the gamification section
 function populateGamification() {
     const gamificationList = document.getElementById('gamificationList');
     studentData.gamification.forEach(item => {
@@ -110,7 +102,6 @@ function populateGamification() {
     });
 }
 
-// Function to populate the analytics section
 function populateAnalytics() {
     const analyticsList = document.getElementById('analyticsList');
     studentData.analytics.forEach(item => {
@@ -123,7 +114,6 @@ function populateAnalytics() {
     });
 }
 
-// Function to populate the exam section
 function populateExams() {
     const examSection = document.getElementById('examSection');
     const nextExam = document.createElement('p');
@@ -135,7 +125,6 @@ function populateExams() {
     examSection.appendChild(totalExams);
 }
 
-// Function to populate the assignments section
 function populateAssignments() {
     const assignmentSection = document.getElementById('assignmentSection');
     const assignments = document.createElement('p');
@@ -143,7 +132,6 @@ function populateAssignments() {
     assignmentSection.appendChild(assignments);
 }
 
-// Initialize the dashboard by updating all sections
 function initializeDashboard() {
     updateProfile();
     updateProgress();
@@ -157,5 +145,4 @@ function initializeDashboard() {
     populateAssignments();
 }
 
-// Call the initializeDashboard function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initializeDashboard);
