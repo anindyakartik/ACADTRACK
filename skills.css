@@ -169,22 +169,6 @@ nav ul li a:hover, .active {
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-    .dashboard {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .controls-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .skill-input, .skill-edit {
-        width: 90%;
-    }
-}
-
 .control-box {
     background: rgba(33, 33, 33, 0.85);
     padding: 25px 30px;
