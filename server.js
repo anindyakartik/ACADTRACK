@@ -33,9 +33,14 @@ const assignmentSchema = new mongoose.Schema({
   Status: { type: String, required: true },
 });
 
+
+app.use(express.static(__dirname)); // Serve static files like HTML, CSS, JS
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 const Assignment = mongoose.model("Assignment", assignmentSchema);
-
-
 app.get("/assignments", async (req, res) => {
   try {
     const assignments = await Assignment.find();
