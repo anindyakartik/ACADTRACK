@@ -1,5 +1,7 @@
-CREATE DATABASE acadtrack_final;
-USE acadtrack_final;
+CREATE DATABASE acadtrack_03;
+USE acadtrack_03;
+
+-- Student Table
 CREATE TABLE student (
     Student_ID INT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
@@ -8,6 +10,7 @@ CREATE TABLE student (
     Phone_Number VARCHAR(15) UNIQUE NOT NULL
 );
 
+-- Courses Table
 CREATE TABLE courses (
     Course_ID INT PRIMARY KEY,
     Course_Name VARCHAR(100) NOT NULL,
@@ -16,6 +19,7 @@ CREATE TABLE courses (
     Semester INT CHECK (Semester > 0)
 );
 
+-- Assignments Table
 CREATE TABLE assignments (
     Assignment_Title VARCHAR(100),
     Course_ID INT,
@@ -25,6 +29,7 @@ CREATE TABLE assignments (
     FOREIGN KEY (Course_ID) REFERENCES courses(Course_ID)
 );
 
+-- Exams Table
 CREATE TABLE exams (
     Exam_Type ENUM('Midterm', 'Final'),
     Course_ID INT,
@@ -34,6 +39,7 @@ CREATE TABLE exams (
     FOREIGN KEY (Course_ID) REFERENCES courses(Course_ID)
 );
 
+-- Grades Table
 CREATE TABLE grades (
     Evaluation_Type ENUM('Midterm', 'Final'),
     Total_Marks INT CHECK (Total_Marks > 0),
@@ -43,7 +49,7 @@ CREATE TABLE grades (
     FOREIGN KEY (Course_ID) REFERENCES courses(Course_ID)
 );
 
-
+-- Projects Table
 CREATE TABLE projects (
     Project_Guide VARCHAR(100),
     Project_Title VARCHAR(100) PRIMARY KEY,
@@ -52,6 +58,7 @@ CREATE TABLE projects (
     Completion_Status ENUM('Ongoing', 'Completed') DEFAULT 'Ongoing'
 );
 
+-- Skills Table
 CREATE TABLE skills (
     Skill_Name VARCHAR(50) PRIMARY KEY,
     Hours_Practiced INT CHECK (Hours_Practiced >= 0),
@@ -60,6 +67,7 @@ CREATE TABLE skills (
     Certification_Status ENUM('Certified', 'Not Certified') DEFAULT 'Not Certified'
 );
 
+-- Time Management Table
 CREATE TABLE time_management (
     Task_Name VARCHAR(100) PRIMARY KEY,
     Priority_Level ENUM('Low', 'Medium', 'High'),
@@ -68,47 +76,55 @@ CREATE TABLE time_management (
     Deadline DATE NOT NULL
 );
 
-SELECT Name FROM student
-UNION
-SELECT Instructor_Name FROM courses;
+-- Sample Data
+INSERT INTO student (Student_ID, Name, Enrollment_Number, Email, Phone_Number)
+VALUES 
+(1, 'Rivva', 'SRM2023001', 'rivva@srmist.edu.in', '9876543210'),
+(2, 'Tina', 'SRM2023002', 'tina@srmist.edu.in', '8765432109'),
+(3, 'Nazneen', 'SRM2023003', 'nazneen@srmist.edu.in', '7654321098'),
+(4, 'Anindya', 'SRM2023004', 'anindya@srmist.edu.in', '6543210987');
 
+INSERT INTO courses (Course_ID, Course_Name, Credits, Instructor_Name, Semester)
+VALUES 
+(1, 'Data Structures', 4, 'Prof. Ramesh Iyer', 2),
+(2, 'Database Management Systems', 3, 'Dr. Neha Verma', 3),
+(3, 'Operating Systems', 4, 'Prof. Karthik Rao', 4);
 
-SELECT Name FROM student
-INNER JOIN courses ON student.Name = courses.Instructor_Name;
+INSERT INTO assignments (Assignment_Title, Course_ID, Submission_Date, Marks_Assigned, Status)
+VALUES 
+('Linked List Implementation', 1, '2025-04-10', 100, 'Pending'),
+('ER Diagram for SRM Portal', 2, '2025-04-15', 100, 'Completed'),
+('Process Scheduling Algorithms', 3, '2025-04-20', 100, 'Pending');
 
+INSERT INTO exams (Exam_Type, Course_ID, Exam_Date, Total_Marks, Marks_Obtained)
+VALUES 
+('Midterm', 1, '2025-05-01', 100, 85),
+('Final', 2, '2025-06-01', 100, 90),
+('Midterm', 3, '2025-05-15', 100, 80);
 
-SELECT Name FROM student
-WHERE Name NOT IN (SELECT Instructor_Name FROM courses);
+INSERT INTO grades (Evaluation_Type, Total_Marks, Course_ID, Marks_Obtained, Grade)
+VALUES 
+('Midterm', 100, 1, 85, 'B'),
+('Final', 100, 2, 90, 'A'),
+('Midterm', 100, 3, 80, 'B');
 
+INSERT INTO projects (Project_Guide, Project_Title, Description, Technologies_Used, Completion_Status)
+VALUES 
+('Prof. Ramesh Iyer', 'Online Student Portal', 'A student portal to manage academics and profile.', 'HTML, CSS, JS, Node.js', 'Ongoing'),
+('Dr. Neha Verma', 'DBMS for Library System', 'A relational DBMS project for library automation.', 'MySQL, PHP', 'Completed');
 
-SELECT a.Assignment_Title, c.Course_Name, a.Submission_Date
-FROM assignments a
-INNER JOIN courses c ON a.Course_ID = c.Course_ID;
+INSERT INTO skills (Skill_Name, Hours_Practiced, Proficiency_Level, Learning_Resources, Certification_Status)
+VALUES 
+('C Programming', 60, 'Intermediate', 'NPTEL, GeeksforGeeks', 'Certified'),
+('MySQL', 45, 'Intermediate', 'NPTEL, Udemy', 'Not Certified');
 
+INSERT INTO time_management (Task_Name, Priority_Level, Activity_Type, Duration, Deadline)
+VALUES 
+('Revise OS Notes', 'High', 'Study', 2, '2025-04-10'),
+('Complete DBMS Assignment', 'Medium', 'Study', 3, '2025-04-15'),
+('Leetcode Practice', 'Low', 'Coding', 1, '2025-04-20');
 
-SELECT s.Name, g.Grade
-FROM student s
-LEFT JOIN grades g ON s.Student_ID = g.Course_ID;
-
-
-SELECT c.Course_Name, a.Assignment_Title
-FROM assignments a
-RIGHT JOIN courses c ON a.Course_ID = c.Course_ID;
-
-
-SELECT s.Name, g.Grade
-FROM student s
-LEFT JOIN grades g ON s.Student_ID = g.Course_ID
-UNION
-SELECT s.Name, g.Grade
-FROM student s
-RIGHT JOIN grades g ON s.Student_ID = g.Course_ID;
-
-
-SELECT s1.Name, s2.Name AS Duplicate
-FROM student s1
-JOIN student s2 ON s1.Phone_Number = s2.Phone_Number AND s1.Student_ID <> s2.Student_ID;
-
+-- Views and Triggers
 CREATE VIEW student_grades AS
 SELECT s.Name, g.Course_ID, g.Marks_Obtained, g.Grade
 FROM student s
@@ -126,6 +142,8 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+-- Stored Procedure
 DELIMITER //
 CREATE PROCEDURE list_assignments()
 BEGIN
@@ -147,117 +165,14 @@ END;
 //
 DELIMITER ;
 
-INSERT INTO student (Student_ID, Name, Enrollment_Number, Email, Phone_Number)
-VALUES 
-(1, 'John Doe', '2023001', 'john@example.com', '1234567890'),
-(2, 'Jane Smith', '2023002', 'jane@example.com', '2345678901'),
-(3, 'Alice Johnson', '2023003', 'alice@example.com', '3456789012');
-
-INSERT INTO courses (Course_ID, Course_Name, Credits, Instructor_Name, Semester)
-VALUES 
-(1, 'Data Structures', 3, 'Prof. Mike', 1),
-(2, 'Database Systems', 4, 'Prof. Emma', 2),
-(3, 'Operating Systems', 3, 'Prof. John', 1);
-
-INSERT INTO assignments (Assignment_Title, Course_ID, Submission_Date, Marks_Assigned, Status)
-VALUES 
-('Assignment 1', 1, '2025-04-10', 100, 'Pending'),
-('Assignment 2', 2, '2025-04-15', 100, 'Completed'),
-('Assignment 3', 3, '2025-04-20', 100, 'Pending');
-
-INSERT INTO exams (Exam_Type, Course_ID, Exam_Date, Total_Marks, Marks_Obtained)
-VALUES 
-('Midterm', 1, '2025-05-01', 100, 85),
-('Final', 2, '2025-06-01', 100, 90),
-('Midterm', 3, '2025-05-15', 100, 80);
-
-INSERT INTO grades (Evaluation_Type, Total_Marks, Course_ID, Marks_Obtained, Grade)
-VALUES 
-('Midterm', 100, 1, 85, 'B'),
-('Final', 100, 2, 90, 'A'),
-('Midterm', 100, 3, 80, 'B');
-
-INSERT INTO projects (Project_Guide, Project_Title, Description, Technologies_Used, Completion_Status)
-VALUES 
-('Prof. Mike', 'Student Portal', 'A portal for students to track assignments', 'JavaScript, Node.js', 'Ongoing'),
-('Prof. Emma', 'Database Design', 'A project on relational database design', 'MySQL, PHP', 'Completed');
-
-INSERT INTO skills (Skill_Name, Hours_Practiced, Proficiency_Level, Learning_Resources, Certification_Status)
-VALUES 
-('Python', 50, 'Intermediate', 'Online Courses, Books', 'Certified'),
-('JavaScript', 40, 'Intermediate', 'Online Courses', 'Not Certified');
-
-INSERT INTO time_management (Task_Name, Priority_Level, Activity_Type, Duration, Deadline)
-VALUES 
-('Study Data Structures', 'High', 'Study', 2, '2025-04-10'),
-('Complete Assignment 2', 'Medium', 'Study', 3, '2025-04-15'),
-('Practice Coding', 'Low', 'Coding', 1, '2025-04-20');
+-- Select Everything
 SELECT * FROM student;
-
 SELECT * FROM courses;
-
 SELECT * FROM assignments;
-
 SELECT * FROM exams;
-
 SELECT * FROM grades;
-
 SELECT * FROM projects;
-
 SELECT * FROM skills;
-
 SELECT * FROM time_management;
-
-SELECT * FROM (
-    SELECT Name FROM student
-    UNION
-    SELECT Instructor_Name FROM courses
-) AS union_result;
-
-SELECT * FROM (
-    SELECT Name FROM student
-    INNER JOIN courses ON student.Name = courses.Instructor_Name
-) AS intersect_result;
-
-SELECT * FROM (
-    SELECT Name FROM student
-    WHERE Name NOT IN (SELECT Instructor_Name FROM courses)
-) AS except_result;
-
-SELECT * FROM (
-    SELECT a.Assignment_Title, c.Course_Name, a.Submission_Date
-    FROM assignments a
-    INNER JOIN courses c ON a.Course_ID = c.Course_ID
-) AS assignment_details;
-
-SELECT * FROM (
-    SELECT s.Name, g.Grade
-    FROM student s
-    LEFT JOIN grades g ON s.Student_ID = g.Course_ID
-) AS student_grades;
-
-SELECT * FROM (
-    SELECT c.Course_Name, a.Assignment_Title
-    FROM assignments a
-    RIGHT JOIN courses c ON a.Course_ID = c.Course_ID
-) AS course_assignments;
-
-SELECT * FROM (
-    SELECT s.Name, g.Grade
-    FROM student s
-    LEFT JOIN grades g ON s.Student_ID = g.Course_ID
-    UNION
-    SELECT s.Name, g.Grade
-    FROM student s
-    RIGHT JOIN grades g ON s.Student_ID = g.Course_ID
-) AS full_student_grades;
-
-SELECT * FROM (
-    SELECT s1.Name, s2.Name AS Duplicate
-    FROM student s1
-    JOIN student s2 ON s1.Phone_Number = s2.Phone_Number AND s1.Student_ID <> s2.Student_ID
-) AS duplicate_students;
-
 SELECT * FROM student_grades;
-
 CALL list_assignments();
